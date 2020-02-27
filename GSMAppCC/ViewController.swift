@@ -23,6 +23,8 @@ class ViewController: UIViewController {
         
         textFiedlsRounded(for: userLoginTXT)
         textFiedlsRounded(for: userPsswdTXT)
+        padding(for: userLoginTXT)
+        padding(for: userPsswdTXT)
         confBtn()
         
     }
@@ -41,6 +43,13 @@ class ViewController: UIViewController {
         
     }
     
+    func padding(for textField: UITextField){
+        
+        let blankView = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: -10))
+        textField.leftView = blankView
+        textField.leftViewMode = .always
+        
+    }
 
 
 }
