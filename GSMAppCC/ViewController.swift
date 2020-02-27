@@ -9,11 +9,38 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var btnAcceso: UIButton!
+    @IBOutlet weak var userLoginTXT: UITextField!
+    @IBOutlet weak var userPsswdTXT: UITextField!
+    
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+    // Do any additional setup after loading the view.
+        
+    super.viewDidLoad()
+        
+        textFiedlsRounded(for: userLoginTXT)
+        textFiedlsRounded(for: userPsswdTXT)
+        confBtn()
+        
     }
+    
+    func confBtn(){
+        
+        btnAcceso.layer.cornerRadius = 20
+        btnAcceso.layer.masksToBounds = true
+        
+    }
+    
+    func textFiedlsRounded(for view: UIView){
+        
+        view.layer.cornerRadius = 15
+        view.layer.masksToBounds = true
+        
+    }
+    
 
 
 }
