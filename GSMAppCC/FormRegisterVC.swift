@@ -158,14 +158,14 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func textRoundedTextFields(for view: UIView){
         
-        view.layer.cornerRadius = 20
+        view.layer.cornerRadius = 15
         view.layer.masksToBounds = true
         
     }
     
     func botonesRedondos(for view: UIView){
         
-        view.layer.cornerRadius = 25
+        view.layer.cornerRadius = 15
         view.layer.masksToBounds = true
         
     }

@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87" y="146"/>
+            <point key="canvasLocation" x="-677" y="887"/>
         </scene>
         <!--Form RegisterVC-->
         <scene sceneID="8wZ-45-Fh2">
@@ -273,17 +273,17 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="hZd-tL-JVV"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfa-sb-Eer">
-                                <rect key="frame" x="0.0" y="896" width="4098" height="128"/>
+                                <rect key="frame" x="0.0" y="924" width="4098" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxp-fI-q71">
-                                        <rect key="frame" x="1982" y="37" width="134" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <rect key="frame" x="2001" y="29" width="97" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Cancelar"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="NF8-jF-Us3"/>
+                                    <constraint firstAttribute="height" constant="100" id="NF8-jF-Us3"/>
                                     <constraint firstItem="Hxp-fI-q71" firstAttribute="centerY" secondItem="kfa-sb-Eer" secondAttribute="centerY" id="ZIw-od-wOS"/>
                                     <constraint firstItem="Hxp-fI-q71" firstAttribute="centerX" secondItem="kfa-sb-Eer" secondAttribute="centerX" id="aiN-lU-Ck5"/>
                                     <constraint firstItem="Hxp-fI-q71" firstAttribute="centerY" secondItem="kfa-sb-Eer" secondAttribute="centerY" id="ytL-kl-FJl"/>

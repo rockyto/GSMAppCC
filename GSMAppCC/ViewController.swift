@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     
     func confBtn(){
         
-        btnAcceso.layer.cornerRadius = 20
+        btnAcceso.layer.cornerRadius = 15
         btnAcceso.layer.masksToBounds = true
         
     }
