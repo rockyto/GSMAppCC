@@ -22,6 +22,8 @@
 		5264CB8F2406F68000922BF7 /* plaza-antea-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5264CB892406F68000922BF7 /* plaza-antea-2.jpg */; };
 		5264CB912407014700922BF7 /* gsm-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5264CB902407014500922BF7 /* gsm-logo.png */; };
 		52D2EB402407370900901E25 /* FormRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2EB3F2407370900901E25 /* FormRegisterVC.swift */; };
+		969F8CC5FDFFB0D0D572A305 /* Pods_GSMAppCCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445ACC37448D2E56ADA23AB1 /* Pods_GSMAppCCTests.framework */; };
+		A9283131BCFC32D8AB8B449A /* Pods_GSMAppCC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5BDDDED0F1B037599AA55C /* Pods_GSMAppCC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B4CF5FC7E9BFF0EEA298BA9 /* Pods-GSMAppCC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSMAppCC.release.xcconfig"; path = "Pods/Target Support Files/Pods-GSMAppCC/Pods-GSMAppCC.release.xcconfig"; sourceTree = "<group>"; };
+		1B5BDDDED0F1B037599AA55C /* Pods_GSMAppCC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GSMAppCC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B98368393048C01F8F68B6F /* Pods-GSMAppCCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSMAppCCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GSMAppCCTests/Pods-GSMAppCCTests.debug.xcconfig"; sourceTree = "<group>"; };
+		392311C893C3F8C7E2061C79 /* Pods-GSMAppCCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSMAppCCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GSMAppCCTests/Pods-GSMAppCCTests.release.xcconfig"; sourceTree = "<group>"; };
+		445ACC37448D2E56ADA23AB1 /* Pods_GSMAppCCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GSMAppCCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5264CB5A2406F48100922BF7 /* GSMAppCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSMAppCC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5264CB5D2406F48100922BF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5264CB5F2406F48100922BF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +61,7 @@
 		5264CB892406F68000922BF7 /* plaza-antea-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "plaza-antea-2.jpg"; sourceTree = "<group>"; };
 		5264CB902407014500922BF7 /* gsm-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gsm-logo.png"; sourceTree = "<group>"; };
 		52D2EB3F2407370900901E25 /* FormRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRegisterVC.swift; sourceTree = "<group>"; };
+		6BC1F7239EB5450247036F4F /* Pods-GSMAppCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSMAppCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GSMAppCC/Pods-GSMAppCC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9283131BCFC32D8AB8B449A /* Pods_GSMAppCC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,18 +77,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969F8CC5FDFFB0D0D572A305 /* Pods_GSMAppCCTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4869C028F373E2F4232D865C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B5BDDDED0F1B037599AA55C /* Pods_GSMAppCC.framework */,
+				445ACC37448D2E56ADA23AB1 /* Pods_GSMAppCCTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5264CB512406F48000922BF7 = {
 			isa = PBXGroup;
 			children = (
 				5264CB5C2406F48100922BF7 /* GSMAppCC */,
 				5264CB732406F49600922BF7 /* GSMAppCCTests */,
 				5264CB5B2406F48100922BF7 /* Products */,
+				8DF9AF37EE0994EE68FF9757 /* Pods */,
+				4869C028F373E2F4232D865C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +152,17 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		8DF9AF37EE0994EE68FF9757 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BC1F7239EB5450247036F4F /* Pods-GSMAppCC.debug.xcconfig */,
+				1B4CF5FC7E9BFF0EEA298BA9 /* Pods-GSMAppCC.release.xcconfig */,
+				2B98368393048C01F8F68B6F /* Pods-GSMAppCCTests.debug.xcconfig */,
+				392311C893C3F8C7E2061C79 /* Pods-GSMAppCCTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5264CB792406F49600922BF7 /* Build configuration list for PBXNativeTarget "GSMAppCC" */;
 			buildPhases = (
+				FC3DC05B4B5757F6867A884C /* [CP] Check Pods Manifest.lock */,
 				5264CB562406F48000922BF7 /* Sources */,
 				5264CB572406F48000922BF7 /* Frameworks */,
 				5264CB582406F48000922BF7 /* Resources */,
+				71C5175233BD6E14C7D54F94 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +189,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5264CB7C2406F49600922BF7 /* Build configuration list for PBXNativeTarget "GSMAppCCTests" */;
 			buildPhases = (
+				9308895F2B539688F667703E /* [CP] Check Pods Manifest.lock */,
 				5264CB6C2406F49600922BF7 /* Sources */,
 				5264CB6D2406F49600922BF7 /* Frameworks */,
 				5264CB6E2406F49600922BF7 /* Resources */,
@@ -233,6 +268,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71C5175233BD6E14C7D54F94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GSMAppCC/Pods-GSMAppCC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GSMAppCC/Pods-GSMAppCC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9308895F2B539688F667703E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GSMAppCCTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC3DC05B4B5757F6867A884C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GSMAppCC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5264CB562406F48000922BF7 /* Sources */ = {
@@ -400,6 +492,7 @@
 		};
 		5264CB7A2406F49600922BF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BC1F7239EB5450247036F4F /* Pods-GSMAppCC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -419,6 +512,7 @@
 		};
 		5264CB7B2406F49600922BF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B4CF5FC7E9BFF0EEA298BA9 /* Pods-GSMAppCC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -438,6 +532,7 @@
 		};
 		5264CB7D2406F49600922BF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B98368393048C01F8F68B6F /* Pods-GSMAppCCTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -460,6 +555,7 @@
 		};
 		5264CB7E2406F49600922BF7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 392311C893C3F8C7E2061C79 /* Pods-GSMAppCCTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

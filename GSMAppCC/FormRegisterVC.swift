@@ -58,7 +58,7 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         generoPicker.dataSource = self
         genreClientTxt.inputView = generoPicker
         
-        contentView_width.constant = self.view.frame.width * 5
+        contentView_width.constant = self.view.frame.width * 3
         personalData.constant = self.view.frame.width
         addressData.constant = self.view.frame.width
         contactData.constant = self.view.frame.width
@@ -74,6 +74,9 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         textRoundedTextFields(for: townClientTxt)
         textRoundedTextFields(for: cityClientTxt)
         
+        textRoundedTextFields(for: mailClientTxt)
+        textRoundedTextFields(for: telClientTxt)
+        
         padding(for: nameClienTxt)
         padding(for: lastNameClientTxt)
         padding(for: genreClientTxt)
@@ -83,6 +86,8 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         padding(for: zipCodeClientTxt)
         padding(for: townClientTxt)
         padding(for: cityClientTxt)
+        padding(for: mailClientTxt)
+        padding(for: telClientTxt)
         
         botonesRedondos(for: continuaDataBtn)
         botonesRedondos(for: continuaAddressBtn)
@@ -124,10 +129,31 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let screen_width = self.view.frame.width
         let new_x = CGPoint(x: current_x - screen_width, y:0)
         
-        if current_x > 0 {
+        if current_x > 0{
             
             scrollView.setContentOffset(new_x, animated: true)
+        
         }
+    }
+    
+    @IBAction func cancelaClicked(_ sender: Any){
+        
+        nameClienTxt.text = ""
+        lastNameClientTxt.text = ""
+        genreClientTxt.text = ""
+        birthClientTxt.text = ""
+        
+        
+        let current_x = scrollView.contentOffset.x
+        let screen_width = self.view.frame.width
+        let new_x = CGPoint(x: current_x - screen_width, y:0)
+        
+        if current_x > 0{
+        
+            scrollView.setContentOffset(new_x, animated: true)
+        
+        }
+        
     }
     
     @IBAction func continuaPDB_clicked(_ sender: Any){
