@@ -1,0 +1,34 @@
+//
+//  Database.swift
+//  GSMAppCC
+//
+//  Created by Rodrigo Sánchez on 03/03/20.
+//  Copyright © 2020 Rodrigo Sánchez. All rights reserved.
+//
+
+import Foundation
+import SQLite
+
+class Database{
+    
+    static let shared = Database()
+    public let conexion : Connection?
+    public let dataBaseName = "ccGSMRecords.sqlite3"
+    
+    private init(){
+        
+        let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first as? String
+        
+        do{
+            conexion = try Connection("\(dbPath!)/(dataBaseName)")
+        }catch {
+            
+            conexion = nil
+            let error = error as NSError
+            print("fallo la conexión", error)
+            
+        }
+        
+    }
+    
+}
