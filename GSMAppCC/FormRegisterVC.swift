@@ -13,7 +13,7 @@ import UIKit
 class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     
-    var idCCGSM: Int = 0
+    //var idCCGSM: Int = 0
     var idRecordCC: Int = 0
     let helper = Helper()
     var clientBirth: String = ""
@@ -60,7 +60,11 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+
         
+//        nameClienTxt.delegate = self
+//        lastNameClientTxt.delegate = self
 //        genreClientTxt.delegate = self
 //        birthClientTxt.delegate = self
 //
@@ -70,9 +74,11 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 //
 //        NotificationCenter.default.addObserver(self, selector: #selector(tecla2(notificacion:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        generoPicker.delegate = self
-        generoPicker.dataSource = self
-        genreClientTxt.inputView = generoPicker
+        
+        
+//        generoPicker.delegate = self
+//        generoPicker.dataSource = self
+//        genreClientTxt.inputView = generoPicker
         
         contentView_width.constant = self.view.frame.width * 3
         personalData.constant = self.view.frame.width
@@ -141,6 +147,12 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 //
 //        }
 //    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        print("Ejecuta acción")
+        return true
+    }
     
     
     
@@ -332,7 +344,7 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
         
         
-        TableRecords.shared.insertar(id: idRecordCC, nombre: nameClienTxt.text!, apellido: lastNameClientTxt.text!, cumple: birthClientTxt.text!, genero: genreClientTxt.text!, edad: clientAge, direccion: addressClientTxt.text!, colonia: suburbClientTxt.text!, zip: zipCodeClientTxt.text!, municipio: townClientTxt.text!, ciudad: cityClientTxt.text!, mail: mailClientTxt.text!, cel: telClientTxt.text!, id_cc: idCCGSM)
+        TableRecords.shared.insertar(id: idRecordCC, nombre: nameClienTxt.text!, apellido: lastNameClientTxt.text!, cumple: birthClientTxt.text!, genero: genreClientTxt.text!, edad: clientAge, direccion: addressClientTxt.text!, colonia: suburbClientTxt.text!, zip: zipCodeClientTxt.text!, municipio: townClientTxt.text!, ciudad: cityClientTxt.text!, mail: mailClientTxt.text!, cel: telClientTxt.text!) //, id_cc: idCCGSM
         
         nameClienTxt.text = ""
         lastNameClientTxt.text = ""
@@ -355,7 +367,7 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         TableRecords.shared
         for row in (try! Database.shared.conexion?.prepare("SELECT * FROM recordsClientsCC"))! {
 
-             print("id: \(row[0]!), nombre: \(row[1]!), apellido: \(row[2]!), cumple: \(row[3]!), genero: \(row[4]!), edad: \(row[5]!), dirección: \(row[6]!), colonia: \(row[7]!), zip: \(row[8]!), municipio: \(row[9]!), ciudad: \(row[10]!), mail: \(row[11]!), cel: \(row[12]!), id_cc: \(row[13]!) ")
+             print("id: \(row[0]!), nombre: \(row[1]!), apellido: \(row[2]!), cumple: \(row[3]!), genero: \(row[4]!), edad: \(row[5]!), dirección: \(row[6]!), colonia: \(row[7]!), zip: \(row[8]!), municipio: \(row[9]!), ciudad: \(row[10]!), mail: \(row[11]!), cel: \(row[12]!)") //, id_cc: \(row[13]!)
 
          }
         
@@ -405,4 +417,15 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     */
 
+}
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

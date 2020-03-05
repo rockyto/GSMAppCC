@@ -37,4 +37,11 @@ class Helper: NSObject {
         
     }
     
+    func instantiateViewController(identifier: String, animated: Bool, by vc: UIViewController, completion: (() -> Void)?){
+        
+        let nuevoViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        
+        vc.present(nuevoViewController, animated: animated, completion: completion)
+    }
+    
 }

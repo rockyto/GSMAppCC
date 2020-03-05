@@ -29,7 +29,7 @@ class TableRecords {
     private let ciudad = Expression<String>("clientCity")
     private let mail = Expression<String>("clientMail")
     private let cel = Expression<String>("clientCell")
-    private let id_cc = Expression<Int64>("ccID")
+    //private let id_cc = Expression<Int64>("ccID")
     
     private init(){
         do{
@@ -48,11 +48,11 @@ class TableRecords {
                                                  t.column(self.ciudad)
                                                  t.column(self.mail)
                                                  t.column(self.cel)
-                                                 t.column(self.id_cc)
+                                                // t.column(self.id_cc)
                 }))
                 print("La tabla se creo correctamente")
             }else{
-                print("La tabla no se creo")
+                print("La tabla no se creó")
             }
         } catch let error as NSError {
             
@@ -61,9 +61,10 @@ class TableRecords {
         }
     }
     
-    func insertar(id: Int, nombre: String, apellido: String, cumple: String, genero: String, edad: Int, direccion: String, colonia: String, zip: String, municipio: String, ciudad: String, mail: String, cel: String, id_cc: Int){
+    func insertar(id: Int, nombre: String, apellido: String, cumple: String, genero: String, edad: Int, direccion: String, colonia: String, zip: String, municipio: String, ciudad: String, mail: String, cel: String){
+        //, id_cc: Int
         do{
-            let insertar = table.insert(self.nombre <- nombre, self.apellido <- apellido, self.cumple <- cumple, self.genero <- genero, self.edad <- edad, self.direccion <- direccion, self.colonia <- colonia, self.zip <- zip, self.municipio <- municipio, self.ciudad <- ciudad, self.mail <- mail, self.cel <- cel, self.id_cc <- Int64(id_cc))
+            let insertar = table.insert(self.nombre <- nombre, self.apellido <- apellido, self.cumple <- cumple, self.genero <- genero, self.edad <- edad, self.direccion <- direccion, self.colonia <- colonia, self.zip <- zip, self.municipio <- municipio, self.ciudad <- ciudad, self.mail <- mail, self.cel <- cel) //, self.id_cc <- Int64(id_cc)
             try Database.shared.conexion?.run(insertar)
         } catch let error as NSError{
             print("error al guardar", error)

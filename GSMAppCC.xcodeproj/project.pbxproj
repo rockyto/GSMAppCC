@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524B052B2410340A000ED7F7 /* ListaRegistrosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B052A2410340A000ED7F7 /* ListaRegistrosVC.swift */; };
 		5264CB5E2406F48100922BF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5264CB5D2406F48100922BF7 /* AppDelegate.swift */; };
 		5264CB602406F48100922BF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5264CB5F2406F48100922BF7 /* SceneDelegate.swift */; };
 		5264CB622406F48100922BF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5264CB612406F48100922BF7 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		52688163240EF70700E72A62 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688162240EF70700E72A62 /* Helper.swift */; };
 		52AE9252240EEC9700232747 /* TableRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AE9251240EEC9700232747 /* TableRecords.swift */; };
 		52D2EB402407370900901E25 /* FormRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2EB3F2407370900901E25 /* FormRegisterVC.swift */; };
+		52ED6F6024101F3D00927A14 /* Registros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED6F5F24101F3D00927A14 /* Registros.swift */; };
 		969F8CC5FDFFB0D0D572A305 /* Pods_GSMAppCCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445ACC37448D2E56ADA23AB1 /* Pods_GSMAppCCTests.framework */; };
 		A9283131BCFC32D8AB8B449A /* Pods_GSMAppCC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5BDDDED0F1B037599AA55C /* Pods_GSMAppCC.framework */; };
 /* End PBXBuildFile section */
@@ -45,13 +47,12 @@
 		2B98368393048C01F8F68B6F /* Pods-GSMAppCCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSMAppCCTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GSMAppCCTests/Pods-GSMAppCCTests.debug.xcconfig"; sourceTree = "<group>"; };
 		392311C893C3F8C7E2061C79 /* Pods-GSMAppCCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSMAppCCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GSMAppCCTests/Pods-GSMAppCCTests.release.xcconfig"; sourceTree = "<group>"; };
 		445ACC37448D2E56ADA23AB1 /* Pods_GSMAppCCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GSMAppCCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		524B052A2410340A000ED7F7 /* ListaRegistrosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaRegistrosVC.swift; sourceTree = "<group>"; };
 		5264CB5A2406F48100922BF7 /* GSMAppCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSMAppCC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5264CB5D2406F48100922BF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5264CB5F2406F48100922BF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5264CB612406F48100922BF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5264CB642406F48100922BF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5264CB662406F49500922BF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5264CB692406F49500922BF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5264CB6B2406F49500922BF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5264CB702406F49600922BF7 /* GSMAppCCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GSMAppCCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5264CB742406F49600922BF7 /* GSMAppCCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSMAppCCTests.swift; sourceTree = "<group>"; };
@@ -67,6 +68,9 @@
 		52688162240EF70700E72A62 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		52AE9251240EEC9700232747 /* TableRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRecords.swift; sourceTree = "<group>"; };
 		52D2EB3F2407370900901E25 /* FormRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRegisterVC.swift; sourceTree = "<group>"; };
+		52ED6F5F24101F3D00927A14 /* Registros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registros.swift; sourceTree = "<group>"; };
+		52ED6F6124102A5600927A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52ED6F6224102A5600927A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BC1F7239EB5450247036F4F /* Pods-GSMAppCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSMAppCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GSMAppCC/Pods-GSMAppCC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +130,8 @@
 				5264CB5D2406F48100922BF7 /* AppDelegate.swift */,
 				52AE9251240EEC9700232747 /* TableRecords.swift */,
 				52D2EB3F2407370900901E25 /* FormRegisterVC.swift */,
+				52ED6F5F24101F3D00927A14 /* Registros.swift */,
+				524B052A2410340A000ED7F7 /* ListaRegistrosVC.swift */,
 				5264CB5F2406F48100922BF7 /* SceneDelegate.swift */,
 				52688162240EF70700E72A62 /* Helper.swift */,
 				5264CB612406F48100922BF7 /* ViewController.swift */,
@@ -238,6 +244,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"es-419",
 				Base,
 			);
 			mainGroup = 5264CB512406F48000922BF7;
@@ -342,8 +349,10 @@
 			files = (
 				5264CB622406F48100922BF7 /* ViewController.swift in Sources */,
 				52688163240EF70700E72A62 /* Helper.swift in Sources */,
+				524B052B2410340A000ED7F7 /* ListaRegistrosVC.swift in Sources */,
 				52D2EB402407370900901E25 /* FormRegisterVC.swift in Sources */,
 				5264CB5E2406F48100922BF7 /* AppDelegate.swift in Sources */,
+				52ED6F6024101F3D00927A14 /* Registros.swift in Sources */,
 				52AE9252240EEC9700232747 /* TableRecords.swift in Sources */,
 				5266C6B1240EBFDB00908167 /* Database.swift in Sources */,
 				5264CB602406F48100922BF7 /* SceneDelegate.swift in Sources */,
@@ -372,7 +381,7 @@
 		5264CB632406F48100922BF7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5264CB642406F48100922BF7 /* Base */,
+				52ED6F6124102A5600927A14 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -380,7 +389,7 @@
 		5264CB682406F49500922BF7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5264CB692406F49500922BF7 /* Base */,
+				52ED6F6224102A5600927A14 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -392,6 +401,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -452,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

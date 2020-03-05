@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     override func viewDidLoad() {
-        
+          self.hideKeyboardWhenTappedAround()
     // Do any additional setup after loading the view.
         
     super.viewDidLoad()
@@ -39,6 +39,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        confBtn()
+//
+//    }
+    
 //    @objc func teclado(notificacion: Notification){
 //
 //        guard let tecladoSube = (notificacion.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
@@ -59,7 +65,72 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //
 //        self.view.endEditing(true)
 //
+//    func loginGSM(){
+//
+//        let url = URL(string: "http://localhost/API-movil/clientRegisterCC.php")!
+//        let body = "name=\()lastname=\()address=\()suburb=\()zip=\()&town=\()&city=\()&cell=\()&birthday=\()&age=\()&genre=\()&mail=\()"
+//
 //    }
+    
+    func loginGSM(){
+        
+        let url = URL(string: "http://localhost/API-movil/loginCC.php")!
+        let body = "user=\(userLoginTXT.text!)&password=\(userPsswdTXT.text!)"
+        
+        var request = URLRequest(url: url)
+        request.httpBody = body.data(using: .utf8)
+        request.httpMethod = "POST"
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            DispatchQueue.main.async {
+                
+                let helper = Helper()
+                
+                if error != nil{
+                    
+                    helper.showAlert(title: "Error en el servidor", message: error!.localizedDescription, in: self)
+                    return
+                    
+                }
+                do{
+                    guard let data = data else{
+                        
+                        helper.showAlert(title: "Error de datos", message: error!.localizedDescription, in: self)
+                        
+                        return
+                    }
+                    
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary
+                    
+                    guard let parsedJSON = json else{
+                        print ("Error de parsing")
+                        return
+                    }
+                    
+                    if parsedJSON["status"] as! String == "200"{
+                        
+                        print(json)
+                    helper.instantiateViewController(identifier: "vistaTabla", animated: true, by: self, completion: nil)
+                        
+                    }else if parsedJSON["status"] as! String == "404" || parsedJSON["status"] as! String == "401"{
+                        
+                        helper.showAlert(title: "JSON Error", message: parsedJSON["message"] as! String, in: self)
+                    }
+                   }catch{
+                        
+                        helper.showAlert(title: "JSON Error", message: error.localizedDescription, in: self)
+                        
+                    }
+            }
+        }.resume()
+        
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        self.view.endEditing(true)
+
+    }
     
     func confBtn(){
         
