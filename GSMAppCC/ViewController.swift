@@ -14,7 +14,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userLoginTXT: UITextField!
     @IBOutlet weak var userPsswdTXT: UITextField!
     
-    
     override func viewDidLoad() {
           self.hideKeyboardWhenTappedAround()
     // Do any additional setup after loading the view.
@@ -23,13 +22,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
 //        userLoginTXT.delegate = self
 //        userPsswdTXT.delegate = self
-        
 //        NotificationCenter.default.addObserver(self, selector: #selector(teclado(notificacion:)), name: UIResponder.keyboardWillShowNotification, object: nil)
 //
 //        NotificationCenter.default.addObserver(self, selector: #selector(teclado(notificacion: )), name: UIResponder.keyboardWillHideNotification, object: nil)
 //
 //        NotificationCenter.default.addObserver(self, selector: #selector(teclado(notificacion: )), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
         
         textFiedlsRounded(for: userLoginTXT)
         textFiedlsRounded(for: userPsswdTXT)
@@ -72,6 +69,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //
 //    }
     
+    @IBAction func loginBtn(_ sender: AnyObject) {
+        
+       loginGSM()
+        
+    }
     func loginGSM(){
         
         let url = URL(string: "http://localhost/API-movil/loginCC.php")!
@@ -110,12 +112,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     
                     if parsedJSON["status"] as! String == "200"{
                         
-                        print(json)
+                    print(json)
+                        
+                    UserDefaults.standard.set(parsedJSON["CCid"], forKey: "CCid")
+                    UserDefaults.standard.synchronize()
+                    let iDCC: String = UserDefaults.standard.string(forKey: "CCid")!
+                    print("El ID del Centro Comercial es: ",iDCC)
+                    
                     helper.instantiateViewController(identifier: "vistaTabla", animated: true, by: self, completion: nil)
                         
                     }else if parsedJSON["status"] as! String == "404" || parsedJSON["status"] as! String == "401"{
                         
                         helper.showAlert(title: "JSON Error", message: parsedJSON["message"] as! String, in: self)
+                        
                     }
                    }catch{
                         

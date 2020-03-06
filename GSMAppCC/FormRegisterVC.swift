@@ -12,7 +12,6 @@ import UIKit
 
 class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    
     //var idCCGSM: Int = 0
     var idRecordCC: Int = 0
     let helper = Helper()
@@ -61,12 +60,10 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
       
-
-        
 //        nameClienTxt.delegate = self
 //        lastNameClientTxt.delegate = self
-//        genreClientTxt.delegate = self
-//        birthClientTxt.delegate = self
+        genreClientTxt.delegate = self
+        birthClientTxt.delegate = self
 //
 //        NotificationCenter.default.addObserver(self, selector: #selector(tecla2(notificacion:)), name: UIResponder.keyboardWillShowNotification, object: nil)
 //
@@ -74,11 +71,9 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 //
 //        NotificationCenter.default.addObserver(self, selector: #selector(tecla2(notificacion:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        
-        
-//        generoPicker.delegate = self
-//        generoPicker.dataSource = self
-//        genreClientTxt.inputView = generoPicker
+        generoPicker.delegate = self
+        generoPicker.dataSource = self
+        genreClientTxt.inputView = generoPicker
         
         contentView_width.constant = self.view.frame.width * 3
         personalData.constant = self.view.frame.width
@@ -128,7 +123,6 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.view.addGestureRecognizer(swipe)
         // Do any additional setup after loading the view.
         
-        
     }
     
 //    @objc func tecla2(notificacion: Notification){
@@ -153,8 +147,6 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         print("Ejecuta acción")
         return true
     }
-    
-    
     
     @objc func datePickerDidChange(_ datePicker: UIDatePicker){
         
@@ -271,7 +263,6 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         nameClienTxt.resignFirstResponder()
         addressClientTxt.resignFirstResponder()
         telClientTxt.resignFirstResponder()
-        
            
        }
     
@@ -308,18 +299,21 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 
             }
             
-            if textField == mailClientTxt{
+
+        }
+        
+        if textField == mailClientTxt{
+            
+            if helper.isValid(email: mailClientTxt.text!){
                 
-                if helper.isValid(email: mailClientTxt.text!){
-                    
-                    finishContactBtn.isEnabled = true
-                    
-                    print("Correo valido")
-                    
-                }
+                finishContactBtn.isEnabled = true
+                
+                print("Correo valido")
                 
             }
+            
         }
+        
         
     }
     
@@ -343,20 +337,19 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     
         
-        
         TableRecords.shared.insertar(id: idRecordCC, nombre: nameClienTxt.text!, apellido: lastNameClientTxt.text!, cumple: birthClientTxt.text!, genero: genreClientTxt.text!, edad: clientAge, direccion: addressClientTxt.text!, colonia: suburbClientTxt.text!, zip: zipCodeClientTxt.text!, municipio: townClientTxt.text!, ciudad: cityClientTxt.text!, mail: mailClientTxt.text!, cel: telClientTxt.text!) //, id_cc: idCCGSM
         
-        nameClienTxt.text = ""
-        lastNameClientTxt.text = ""
-        genreClientTxt.text = ""
-        birthClientTxt.text = ""
-        addressClientTxt.text = ""
-        suburbClientTxt.text = ""
-        zipCodeClientTxt.text = ""
-        townClientTxt.text = ""
-        cityClientTxt.text = ""
-        mailClientTxt.text = ""
-        telClientTxt.text = ""
+//        nameClienTxt.text = ""
+//        lastNameClientTxt.text = ""
+//        genreClientTxt.text = ""
+//        birthClientTxt.text = ""
+//        addressClientTxt.text = ""
+//        suburbClientTxt.text = ""
+//        zipCodeClientTxt.text = ""
+//        townClientTxt.text = ""
+//        cityClientTxt.text = ""
+//        mailClientTxt.text = ""
+//        telClientTxt.text = ""
         
         helper.showAlert(title: "Registro exitoso", message: "Gracias", in: self)
        
@@ -418,14 +411,4 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     */
 
 }
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
 
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}

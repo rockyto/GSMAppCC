@@ -32,7 +32,6 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,7 +66,18 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
          }
     }
     
-
+    @IBAction func btnSalir(_ sender: UIButton){
+        
+        self.dismiss(animated: true, completion: nil)
+        
+//        let logginView = (self.storyboard?.instantiateViewController(withIdentifier: "tabBarRoot"))
+//        let appDelegado = UIApplication.shared.delegate
+//        appDelegado?.window??.rootViewController = logginView
+        
+    }
+    
+ 
+    
     /*
     // MARK: - Navigation
 
