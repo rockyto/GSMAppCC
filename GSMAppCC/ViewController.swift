@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userPsswdTXT: UITextField!
     
     override func viewDidLoad() {
-          self.hideKeyboardWhenTappedAround()
+    self.hideKeyboardWhenTappedAround()
     // Do any additional setup after loading the view.
         
     super.viewDidLoad()
@@ -36,11 +36,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        confBtn()
-//
-//    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        confBtn()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.userLoginTXT.text = ""
+        self.userPsswdTXT.text = ""
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.userLoginTXT.text = ""
+        self.userPsswdTXT.text = ""
+    }
+    
+    override func viewDidDisappear(_ animated: Bool){
+        super.viewDidDisappear(animated)
+        self.userLoginTXT.text = ""
+        self.userPsswdTXT.text = ""
+    }
     
 //    @objc func teclado(notificacion: Notification){
 //
@@ -118,7 +136,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     UserDefaults.standard.synchronize()
                     let iDCC: String = UserDefaults.standard.string(forKey: "CCid")!
                     print("El ID del Centro Comercial es: ",iDCC)
-                    
+                        self.userLoginTXT.text = ""
+                        self.userPsswdTXT.text = ""
                     helper.instantiateViewController(identifier: "vistaTabla", animated: true, by: self, completion: nil)
                         
                     }else if parsedJSON["status"] as! String == "404" || parsedJSON["status"] as! String == "401"{
@@ -162,6 +181,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.leftViewMode = .always
         
     }
+
 
 
 }

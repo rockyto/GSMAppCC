@@ -12,6 +12,34 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     var registrosLista = [Registros]()
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "subir"{
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let fila = registrosLista[indexPath.row]
+                let destino = segue.destination as! SubirRegistroVC
+                destino.registrosASubir = fila
+                
+//                let nombre = registrosLista[nombre.row]
+//                let apellido = registrosLista[.row]
+//                let cumple = registrosLista[.row]
+//                let genero = registrosLista[.row]
+//                let edad = registrosLista[.row]
+//                let direccion = registrosLista[.row]
+//                let colonia = registrosLista[.row]
+//                let zip = registrosLista[.row]
+//                let municipio = registrosLista[.row]
+//                let ciudad = registrosLista[.row]
+//                let mail = registrosLista[.row]
+//                let cel = registrosLista[.row]
+
+            }
+        }
+    }
+ 
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -32,12 +60,19 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
+    /*
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "subir", sender: self)
+    }
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mostrarRegistros()
         // Do any additional setup after loading the view.
     }
+    
+
     
     func mostrarRegistros(){
         TableRecords.shared
@@ -82,10 +117,7 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
+
     */
 
 }

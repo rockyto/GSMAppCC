@@ -24,8 +24,10 @@
 		5264CB912407014700922BF7 /* gsm-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5264CB902407014500922BF7 /* gsm-logo.png */; };
 		5266C6B1240EBFDB00908167 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5266C6B0240EBFDB00908167 /* Database.swift */; };
 		52688163240EF70700E72A62 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52688162240EF70700E72A62 /* Helper.swift */; };
+		529D1AEF2412C56900FEEF2A /* AcuerdoPrivVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529D1AEE2412C56900FEEF2A /* AcuerdoPrivVC.swift */; };
 		52AE9252240EEC9700232747 /* TableRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AE9251240EEC9700232747 /* TableRecords.swift */; };
 		52D2EB402407370900901E25 /* FormRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2EB3F2407370900901E25 /* FormRegisterVC.swift */; };
+		52D835662416C891002F4ADD /* SubirRegistroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D835652416C891002F4ADD /* SubirRegistroVC.swift */; };
 		52ED6F6024101F3D00927A14 /* Registros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED6F5F24101F3D00927A14 /* Registros.swift */; };
 		969F8CC5FDFFB0D0D572A305 /* Pods_GSMAppCCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445ACC37448D2E56ADA23AB1 /* Pods_GSMAppCCTests.framework */; };
 		A9283131BCFC32D8AB8B449A /* Pods_GSMAppCC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5BDDDED0F1B037599AA55C /* Pods_GSMAppCC.framework */; };
@@ -66,8 +68,10 @@
 		5264CB902407014500922BF7 /* gsm-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gsm-logo.png"; sourceTree = "<group>"; };
 		5266C6B0240EBFDB00908167 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		52688162240EF70700E72A62 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		529D1AEE2412C56900FEEF2A /* AcuerdoPrivVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcuerdoPrivVC.swift; sourceTree = "<group>"; };
 		52AE9251240EEC9700232747 /* TableRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRecords.swift; sourceTree = "<group>"; };
 		52D2EB3F2407370900901E25 /* FormRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRegisterVC.swift; sourceTree = "<group>"; };
+		52D835652416C891002F4ADD /* SubirRegistroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubirRegistroVC.swift; sourceTree = "<group>"; };
 		52ED6F5F24101F3D00927A14 /* Registros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registros.swift; sourceTree = "<group>"; };
 		52ED6F6124102A5600927A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52ED6F6224102A5600927A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -128,7 +132,9 @@
 			children = (
 				5264CB832406F68000922BF7 /* Images */,
 				5264CB5D2406F48100922BF7 /* AppDelegate.swift */,
+				529D1AEE2412C56900FEEF2A /* AcuerdoPrivVC.swift */,
 				52AE9251240EEC9700232747 /* TableRecords.swift */,
+				52D835652416C891002F4ADD /* SubirRegistroVC.swift */,
 				52D2EB3F2407370900901E25 /* FormRegisterVC.swift */,
 				52ED6F5F24101F3D00927A14 /* Registros.swift */,
 				524B052A2410340A000ED7F7 /* ListaRegistrosVC.swift */,
@@ -354,6 +360,8 @@
 				5264CB5E2406F48100922BF7 /* AppDelegate.swift in Sources */,
 				52ED6F6024101F3D00927A14 /* Registros.swift in Sources */,
 				52AE9252240EEC9700232747 /* TableRecords.swift in Sources */,
+				52D835662416C891002F4ADD /* SubirRegistroVC.swift in Sources */,
+				529D1AEF2412C56900FEEF2A /* AcuerdoPrivVC.swift in Sources */,
 				5266C6B1240EBFDB00908167 /* Database.swift in Sources */,
 				5264CB602406F48100922BF7 /* SceneDelegate.swift in Sources */,
 			);

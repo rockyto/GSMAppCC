@@ -59,7 +59,7 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        self.hideKeyboardWhenTappedAround()
 //        nameClienTxt.delegate = self
 //        lastNameClientTxt.delegate = self
         genreClientTxt.delegate = self
@@ -125,6 +125,8 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
+
+    
 //    @objc func tecla2(notificacion: Notification){
 //
 //        guard let tecladoSube = (notificacion.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
@@ -183,17 +185,26 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         lastNameClientTxt.text = ""
         genreClientTxt.text = ""
         birthClientTxt.text = ""
+        addressClientTxt.text = ""
+        suburbClientTxt.text = ""
+        zipCodeClientTxt.text = ""
+        townClientTxt.text = ""
+        cityClientTxt.text = ""
+        mailClientTxt.text = ""
+        telClientTxt.text = ""
         
+        let position = CGPoint(x:0, y:0)
+        scrollView.setContentOffset(position, animated: true)
         
-        let current_x = scrollView.contentOffset.x
-        let screen_width = self.view.frame.width
-        let new_x = CGPoint(x: current_x - screen_width, y:0)
-        
-        if current_x > 0{
-        
-            scrollView.setContentOffset(new_x, animated: true)
-        
-        }
+//        let current_x = scrollView.contentOffset.x
+//        let screen_width = self.view.frame.width
+//        let new_x = CGPoint(x: current_x - screen_width, y:0)
+//
+//        if current_x > 0{
+//
+//            scrollView.setContentOffset(new_x, animated: true)
+//
+//        }
         
     }
     
@@ -337,7 +348,7 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     
         
-        TableRecords.shared.insertar(id: idRecordCC, nombre: nameClienTxt.text!, apellido: lastNameClientTxt.text!, cumple: birthClientTxt.text!, genero: genreClientTxt.text!, edad: clientAge, direccion: addressClientTxt.text!, colonia: suburbClientTxt.text!, zip: zipCodeClientTxt.text!, municipio: townClientTxt.text!, ciudad: cityClientTxt.text!, mail: mailClientTxt.text!, cel: telClientTxt.text!) //, id_cc: idCCGSM
+        TableRecords.shared.insertar(id: idRecordCC, nombre: nameClienTxt.text!, apellido: lastNameClientTxt.text!, cumple: clientBirth, genero: genreClientTxt.text!, edad: clientAge, direccion: addressClientTxt.text!, colonia: suburbClientTxt.text!, zip: zipCodeClientTxt.text!, municipio: townClientTxt.text!, ciudad: cityClientTxt.text!, mail: mailClientTxt.text!, cel: telClientTxt.text!) //, id_cc: idCCGSM
         
 //        nameClienTxt.text = ""
 //        lastNameClientTxt.text = ""

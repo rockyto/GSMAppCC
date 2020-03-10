@@ -50,7 +50,9 @@ class TableRecords {
                                                  t.column(self.cel)
                                                 // t.column(self.id_cc)
                 }))
+                
                 print("La tabla se creo correctamente")
+                
             }else{
                 print("La tabla no se creó")
             }
@@ -69,6 +71,14 @@ class TableRecords {
         } catch let error as NSError{
             print("error al guardar", error)
         }
+    }
+    
+    func borrar(ids: Int64){
+        
+        let identificador = table.filter(id == ids)
+        try! Database.shared.conexion?.run(identificador.delete())
+        print("Registro borrado correctamente")
+        
     }
     
 }
