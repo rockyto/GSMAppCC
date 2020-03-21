@@ -350,19 +350,28 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         TableRecords.shared.insertar(id: idRecordCC, nombre: nameClienTxt.text!, apellido: lastNameClientTxt.text!, cumple: clientBirth, genero: genreClientTxt.text!, edad: clientAge, direccion: addressClientTxt.text!, colonia: suburbClientTxt.text!, zip: zipCodeClientTxt.text!, municipio: townClientTxt.text!, ciudad: cityClientTxt.text!, mail: mailClientTxt.text!, cel: telClientTxt.text!) //, id_cc: idCCGSM
         
-//        nameClienTxt.text = ""
-//        lastNameClientTxt.text = ""
-//        genreClientTxt.text = ""
-//        birthClientTxt.text = ""
-//        addressClientTxt.text = ""
-//        suburbClientTxt.text = ""
-//        zipCodeClientTxt.text = ""
-//        townClientTxt.text = ""
-//        cityClientTxt.text = ""
-//        mailClientTxt.text = ""
-//        telClientTxt.text = ""
+        let myAlert = UIAlertController(title: "Gracias", message: "Registro Exitoso", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(alertAction) in
+            
+            self.nameClienTxt.text = ""
+            self.lastNameClientTxt.text = ""
+            self.genreClientTxt.text = ""
+            self.birthClientTxt.text = ""
+            self.addressClientTxt.text = ""
+            self.suburbClientTxt.text = ""
+            self.zipCodeClientTxt.text = ""
+            self.townClientTxt.text = ""
+            self.cityClientTxt.text = ""
+            self.mailClientTxt.text = ""
+            self.telClientTxt.text = ""
+            
+            
+        })
         
-        helper.showAlert(title: "Registro exitoso", message: "Gracias", in: self)
+        myAlert.addAction(okAction)
+        self.present(myAlert, animated:true, completion: nil)
+        
+
        
     }
     

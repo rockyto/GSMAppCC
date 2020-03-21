@@ -31,6 +31,8 @@ class SubirRegistroVC: UIViewController {
     @IBOutlet weak var btnNo: UIButton!
     @IBOutlet weak var btnEliminar: UIButton!
     
+    let iDCC: String = UserDefaults.standard.string(forKey: "CCid")!
+    
     override func viewDidLoad() {
         
         botonesRedondos(for: btnSi)
@@ -74,7 +76,7 @@ class SubirRegistroVC: UIViewController {
     func SubeRegistro(){
         let url = URL(string: "http://localhost/API-movil/clientRegisterCC.php")!
         
-        let body = "name=\(registrosASubir.nombre)&lastname=\(registrosASubir.apellido)&zip=\(registrosASubir.zip)&city=\(registrosASubir.ciudad)&cell=\(registrosASubir.cel)&genre=\(registrosASubir.genero)&mail=\(registrosASubir.mail)&address=\(registrosASubir.direccion)&suburb=\(registrosASubir.colonia)&town=\(registrosASubir.municipio)&birthday=\(registrosASubir.cumple)&age=\(registrosASubir.edad)"
+        let body = "name=\(registrosASubir.nombre)&lastname=\(registrosASubir.apellido)&zip=\(registrosASubir.zip)&city=\(registrosASubir.ciudad)&cell=\(registrosASubir.cel)&genre=\(registrosASubir.genero)&mail=\(registrosASubir.mail)&address=\(registrosASubir.direccion)&suburb=\(registrosASubir.colonia)&town=\(registrosASubir.municipio)&birthday=\(registrosASubir.cumple)&age=\(registrosASubir.edad)&ccID=\(iDCC)"
         
         print(body)
         var request = URLRequest(url: url)
@@ -106,7 +108,15 @@ class SubirRegistroVC: UIViewController {
                     
                     if parsedJSON["status"] as! String == "200"{
                         
-                        helper.showAlert(title: "Datos subido", message: "Los datos se han registrado en el servidor", in: self)
+                        let myAlert = UIAlertController(title: "Datos subidos", message: "Los datos se han registrado en el servidor", preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(alertAction) in
+                            
+                            self.navigationController?.popViewController(animated: true)
+                            
+                        })
+                        
+                        myAlert.addAction(okAction)
+                        self.present(myAlert, animated:true, completion: nil)
                         print(json)
                         
                     }else{

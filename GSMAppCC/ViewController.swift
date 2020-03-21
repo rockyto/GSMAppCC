@@ -92,6 +92,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
        loginGSM()
         
     }
+    
     func loginGSM(){
         
         let url = URL(string: "http://localhost/API-movil/loginCC.php")!
@@ -154,6 +155,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }.resume()
         
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
         self.view.endEditing(true)
