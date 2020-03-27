@@ -68,13 +68,49 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mostrarRegistros()
+          mostrarRegistros()
+        
+        if registrosLista.isEmpty == true{
+            
+            //tablaHorarios.isHidden = true
+            tableView.isHidden = true
+            
+        }else{
+            
+            tableView.isHidden = false
+        }
+        
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if registrosLista.isEmpty == true{
+            
+            tableView.isHidden = true
+            
+        }else{
+            
+            mostrarRegistros()
+            tableView.reloadData()
+            tableView.isHidden = false
+            
+        }
+
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool){
+        
+        
+        tableView.reloadData()
+
+    }
 
     
     func mostrarRegistros(){
+
+        registrosLista.removeAll()
         TableRecords.shared
         for row in (try! Database.shared.conexion?.prepare("SELECT * FROM recordsClientsCC"))! {
             

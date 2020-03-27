@@ -74,7 +74,7 @@ class SubirRegistroVC: UIViewController {
     }
     
     func SubeRegistro(){
-        let url = URL(string: "http://localhost/API-movil/clientRegisterCC.php")!
+        let url = URL(string: "http://localhost:8888/API-movil/clientRegisterCC.php")!
         
         let body = "name=\(registrosASubir.nombre)&lastname=\(registrosASubir.apellido)&zip=\(registrosASubir.zip)&city=\(registrosASubir.ciudad)&cell=\(registrosASubir.cel)&genre=\(registrosASubir.genero)&mail=\(registrosASubir.mail)&address=\(registrosASubir.direccion)&suburb=\(registrosASubir.colonia)&town=\(registrosASubir.municipio)&birthday=\(registrosASubir.cumple)&age=\(registrosASubir.edad)&ccID=\(iDCC)"
         
@@ -111,8 +111,10 @@ class SubirRegistroVC: UIViewController {
                         let myAlert = UIAlertController(title: "Datos subidos", message: "Los datos se han registrado en el servidor", preferredStyle: UIAlertController.Style.alert)
                         let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(alertAction) in
                             
-                            self.navigationController?.popViewController(animated: true)
-                            
+                            self.EliminarRegistro()
+                        
+                              self.navigationController?.popViewController(animated: true)
+
                         })
                         
                         myAlert.addAction(okAction)
@@ -135,6 +137,24 @@ class SubirRegistroVC: UIViewController {
     func EliminarRegistro(){
         
         TableRecords.shared.borrar(ids: registrosASubir.id)
+        
+    }
+    
+    @IBAction func eliminaRegistro_clicked(_sender: UIButton){
+        
+        let myAlert = UIAlertController(title: "Registro eliminado", message: "Todos los datos de este registro han sido eliminados", preferredStyle: UIAlertController.Style.alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(alertAction) in
+            
+            self.EliminarRegistro()
+            self.navigationController?.popViewController(animated: true)
+
+                               })
+                               
+        myAlert.addAction(okAction)
+        self.present(myAlert, animated:true, completion: nil)
+                            
+        EliminarRegistro()
         
     }
 

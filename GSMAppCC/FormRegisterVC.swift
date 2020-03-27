@@ -18,6 +18,7 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var clientBirth: String = ""
     var clientAge: Int = 0
     let dataSource = ["Hombre", "Mujer", "Prefiero no decirlo"]
+    
     var generoPicker = UIPickerView()
     
     //Constraints
@@ -352,6 +353,9 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let myAlert = UIAlertController(title: "Gracias", message: "Registro Exitoso", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(alertAction) in
+            
+            let position = CGPoint(x:0, y:0)
+            self.scrollView.setContentOffset(position, animated: true)
             
             self.nameClienTxt.text = ""
             self.lastNameClientTxt.text = ""

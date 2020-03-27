@@ -95,7 +95,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func loginGSM(){
         
-        let url = URL(string: "http://localhost/API-movil/loginCC.php")!
+        let url = URL(string: "http://localhost:8888/API-movil/loginCC.php")!
         let body = "user=\(userLoginTXT.text!)&password=\(userPsswdTXT.text!)"
         
         var request = URLRequest(url: url)
