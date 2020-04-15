@@ -13,11 +13,11 @@ class Registros{
     var id : Int64
     var nombre : String
     var apellido : String
-    var cumple : String
+//  var cumple : String
     var genero : String
-    var edad : Int
+    var edad : String
     
-    var direccion : String
+//  var direccion : String
     var colonia : String
     
     var zip : String
@@ -27,16 +27,16 @@ class Registros{
     var cel : String
    // var id_cc : Int64
     
-    init(id: Int64, nombre: String, apellido: String, cumple: String, genero: String, edad: Int, direccion: String, colonia: String, zip: String, municipio: String, ciudad: String, mail: String, cel: String) {
+    init(id: Int64, nombre: String, apellido: String, /*cumple: String,*/ genero: String, edad: String, /*direccion: String,*/ colonia: String, zip: String, municipio: String, ciudad: String, mail: String, cel: String) {
         //, id_cc: Int64
         
         self.id = id
         self.nombre = nombre
         self.apellido = apellido
-        self.cumple = cumple
+     // self.cumple = cumple
         self.genero = genero
         self.edad = edad
-        self.direccion = direccion
+      //self.direccion = direccion
         self.colonia = colonia
         self.zip = zip
         self.municipio = municipio

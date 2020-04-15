@@ -17,11 +17,12 @@ class TableRecords {
     private let id = Expression<Int64>("idCCRecordsClients")
     private let nombre = Expression<String>("clientName")
     private let apellido = Expression<String>("clientLastName")
-    private let cumple = Expression<String>("clientBirthday")
-    private let genero = Expression<String>("clientGenre")
-    private let edad = Expression<Int>("clientAge")
     
-    private let direccion = Expression<String>("clientAddress")
+//  private let cumple = Expression<String>("clientBirthday")
+    private let genero = Expression<String>("clientGenre")
+    private let edad = Expression<String>("clientAge")
+    
+//  private let direccion = Expression<String>("clientAddress")
     private let colonia = Expression<String>("clientSuburb")
     
     private let zip = Expression<String>("clientZipCode")
@@ -38,10 +39,10 @@ class TableRecords {
                                                 t.column(self.id, primaryKey: true)
                                                  t.column(self.nombre)
                                                  t.column(self.apellido)
-                                                 t.column(self.cumple)
+                                               //t.column(self.cumple)
                                                  t.column(self.genero)
                                                  t.column(self.edad)
-                                                 t.column(self.direccion)
+                                               //t.column(self.direccion)
                                                  t.column(self.colonia)
                                                  t.column(self.zip)
                                                  t.column(self.municipio)
@@ -63,10 +64,10 @@ class TableRecords {
         }
     }
     
-    func insertar(id: Int, nombre: String, apellido: String, cumple: String, genero: String, edad: Int, direccion: String, colonia: String, zip: String, municipio: String, ciudad: String, mail: String, cel: String){
+    func insertar(id: Int, nombre: String, apellido: String, genero: String, edad: String, colonia: String, zip: String, municipio: String, ciudad: String, mail: String, cel: String){
         //, id_cc: Int
         do{
-            let insertar = table.insert(self.nombre <- nombre, self.apellido <- apellido, self.cumple <- cumple, self.genero <- genero, self.edad <- edad, self.direccion <- direccion, self.colonia <- colonia, self.zip <- zip, self.municipio <- municipio, self.ciudad <- ciudad, self.mail <- mail, self.cel <- cel) //, self.id_cc <- Int64(id_cc)
+            let insertar = table.insert(self.nombre <- nombre, self.apellido <- apellido, self.genero <- genero, self.edad <- edad, self.colonia <- colonia, self.zip <- zip, self.municipio <- municipio, self.ciudad <- ciudad, self.mail <- mail, self.cel <- cel)
             try Database.shared.conexion?.run(insertar)
         } catch let error as NSError{
             print("error al guardar", error)

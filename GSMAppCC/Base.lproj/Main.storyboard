@@ -146,7 +146,7 @@
                                                             <action selector="textFieldDidChange:" destination="2E3-mF-Hhe" eventType="editingChanged" id="Ate-Rh-dDP"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Fecha de nacimiento" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6AM-Ca-sOW">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rango de edad" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6AM-Ca-sOW">
                                                         <rect key="frame" x="695" y="352" width="646" height="75"/>
                                                         <color key="backgroundColor" red="1" green="0.99270357860000003" blue="0.97535683409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -264,47 +264,29 @@
                                                             <action selector="continuaDB_clicked:" destination="2E3-mF-Hhe" eventType="touchUpInside" id="r0h-JI-6dk"/>
                                                         </connections>
                                                     </button>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dirección" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CQS-lL-j4s">
-                                                        <rect key="frame" x="54" y="238" width="795" height="75"/>
-                                                        <color key="backgroundColor" red="1" green="0.99270357860000003" blue="0.97535683409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="75" id="Bm9-py-Lxm"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES" textContentType="address-line1"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Colonia" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Eje-UQ-44r">
-                                                        <rect key="frame" x="887" y="238" width="426" height="75"/>
-                                                        <color key="backgroundColor" red="1" green="0.99270357860000003" blue="0.97535683409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="75" id="lg6-o0-0jm"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES" textContentType="name"/>
-                                                    </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Código postal*" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uTH-Sb-8Yu">
-                                                        <rect key="frame" x="54" y="352" width="226" height="75"/>
+                                                        <rect key="frame" x="695" y="238" width="646" height="75"/>
                                                         <color key="backgroundColor" red="1" green="0.99270357860000003" blue="0.97535683409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="75" id="Lwf-gd-9L0"/>
+                                                            <constraint firstAttribute="height" constant="75" id="Uzp-Ig-Fjt"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ciudad*" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QiT-dH-qMj">
-                                                        <rect key="frame" x="753" y="352" width="560" height="75"/>
+                                                        <rect key="frame" x="695" y="352" width="646" height="75"/>
                                                         <color key="backgroundColor" red="1" green="0.99270357860000003" blue="0.97535683409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="75" id="Q7r-2m-emE"/>
+                                                            <constraint firstAttribute="height" constant="75" id="LjQ-Qo-eJb"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="address-level2"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Delegación/Municipio" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="c88-bU-6SL">
-                                                        <rect key="frame" x="312" y="352" width="407" height="75"/>
+                                                        <rect key="frame" x="26" y="352" width="635" height="75"/>
                                                         <color key="backgroundColor" red="1" green="0.99270357860000003" blue="0.97535683409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="75" id="Ecw-FH-Nlx"/>
+                                                            <constraint firstAttribute="height" constant="75" id="WN6-Tk-19P"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
@@ -320,35 +302,40 @@
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Colonia" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Eje-UQ-44r">
+                                                        <rect key="frame" x="26" y="238" width="635" height="75"/>
+                                                        <color key="backgroundColor" red="1" green="0.99270357860000003" blue="0.97535683409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="75" id="PGJ-rx-eLJ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="c88-bU-6SL" firstAttribute="leading" secondItem="uTH-Sb-8Yu" secondAttribute="trailing" constant="32" id="2MB-8I-1SJ"/>
-                                                    <constraint firstItem="Eje-UQ-44r" firstAttribute="top" secondItem="Hk9-j2-2hF" secondAttribute="bottom" constant="100" id="6Yk-2E-iAE"/>
-                                                    <constraint firstItem="CQS-lL-j4s" firstAttribute="top" secondItem="Hk9-j2-2hF" secondAttribute="bottom" constant="100" id="Aex-SG-8s3"/>
-                                                    <constraint firstItem="Eje-UQ-44r" firstAttribute="leading" secondItem="CQS-lL-j4s" secondAttribute="trailing" constant="38" id="DAK-D4-hhG"/>
-                                                    <constraint firstItem="QiT-dH-qMj" firstAttribute="leading" secondItem="c88-bU-6SL" secondAttribute="trailing" constant="34" id="FKy-OI-vQK"/>
+                                                    <constraint firstItem="QiT-dH-qMj" firstAttribute="width" secondItem="c88-bU-6SL" secondAttribute="width" multiplier="1.01732" id="269-9n-Mms"/>
+                                                    <constraint firstAttribute="trailing" secondItem="QiT-dH-qMj" secondAttribute="trailing" constant="25" id="50F-m4-lsk"/>
+                                                    <constraint firstItem="QiT-dH-qMj" firstAttribute="top" secondItem="uTH-Sb-8Yu" secondAttribute="bottom" constant="39" id="63R-aP-UFN"/>
+                                                    <constraint firstItem="Eje-UQ-44r" firstAttribute="leading" secondItem="8NP-8N-KqF" secondAttribute="leading" constant="26" id="919-tb-lRf"/>
+                                                    <constraint firstItem="c88-bU-6SL" firstAttribute="leading" secondItem="8NP-8N-KqF" secondAttribute="leading" constant="26" id="9yc-2K-Uvd"/>
+                                                    <constraint firstItem="uTH-Sb-8Yu" firstAttribute="width" secondItem="Eje-UQ-44r" secondAttribute="width" multiplier="1.01732" id="BaG-QC-edN"/>
+                                                    <constraint firstItem="uTH-Sb-8Yu" firstAttribute="leading" secondItem="Eje-UQ-44r" secondAttribute="trailing" constant="34" id="CKd-vg-rNz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="uTH-Sb-8Yu" secondAttribute="trailing" constant="25" id="Ikq-SE-z4n"/>
+                                                    <constraint firstItem="uTH-Sb-8Yu" firstAttribute="top" secondItem="Hk9-j2-2hF" secondAttribute="bottom" constant="100" id="J9h-wb-y5M"/>
                                                     <constraint firstItem="Hk9-j2-2hF" firstAttribute="leading" secondItem="8NP-8N-KqF" secondAttribute="leading" constant="21" id="KqR-iF-yjw"/>
                                                     <constraint firstItem="X2T-l4-Bh5" firstAttribute="top" secondItem="nfv-jM-UUW" secondAttribute="bottom" constant="26" id="LxI-Z3-uOT"/>
-                                                    <constraint firstItem="uTH-Sb-8Yu" firstAttribute="leading" secondItem="8NP-8N-KqF" secondAttribute="leading" constant="54" id="MjY-hz-yO7"/>
-                                                    <constraint firstItem="QiT-dH-qMj" firstAttribute="width" secondItem="c88-bU-6SL" secondAttribute="width" multiplier="1.37592" id="Pw0-zR-4fg"/>
-                                                    <constraint firstItem="nfv-jM-UUW" firstAttribute="top" secondItem="uTH-Sb-8Yu" secondAttribute="bottom" constant="26" id="Pwm-Fp-2SB"/>
                                                     <constraint firstAttribute="trailing" secondItem="Hk9-j2-2hF" secondAttribute="trailing" constant="21" id="QdK-LA-G0f"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Eje-UQ-44r" secondAttribute="trailing" constant="53" id="U3P-y1-U7V"/>
                                                     <constraint firstAttribute="height" constant="1024" id="YH2-B6-LLk"/>
-                                                    <constraint firstItem="QiT-dH-qMj" firstAttribute="top" secondItem="CQS-lL-j4s" secondAttribute="bottom" constant="39" id="ZYs-Au-tqP"/>
-                                                    <constraint firstItem="CQS-lL-j4s" firstAttribute="leading" secondItem="8NP-8N-KqF" secondAttribute="leading" constant="54" id="czQ-Ga-iet"/>
                                                     <constraint firstItem="Hk9-j2-2hF" firstAttribute="top" secondItem="8NP-8N-KqF" secondAttribute="top" constant="60" id="eHu-Jb-DJv"/>
                                                     <constraint firstItem="X2T-l4-Bh5" firstAttribute="leading" secondItem="8NP-8N-KqF" secondAttribute="leading" constant="416" id="iIz-b4-GXu"/>
-                                                    <constraint firstAttribute="trailing" secondItem="QiT-dH-qMj" secondAttribute="trailing" constant="53" id="ks0-pJ-ujY"/>
+                                                    <constraint firstItem="QiT-dH-qMj" firstAttribute="leading" secondItem="c88-bU-6SL" secondAttribute="trailing" constant="34" id="iPN-QD-6aV"/>
                                                     <constraint firstAttribute="trailing" secondItem="nfv-jM-UUW" secondAttribute="trailing" constant="25" id="l3t-me-ddw"/>
-                                                    <constraint firstItem="c88-bU-6SL" firstAttribute="width" secondItem="uTH-Sb-8Yu" secondAttribute="width" multiplier="1.80088" id="lWM-c5-FaF"/>
-                                                    <constraint firstItem="c88-bU-6SL" firstAttribute="top" secondItem="CQS-lL-j4s" secondAttribute="bottom" constant="39" id="mSt-8M-xaz"/>
                                                     <constraint firstAttribute="width" constant="1366" id="ntf-J3-2uS"/>
-                                                    <constraint firstItem="c88-bU-6SL" firstAttribute="leading" secondItem="uTH-Sb-8Yu" secondAttribute="trailing" constant="32" id="sEf-ES-Jqg"/>
+                                                    <constraint firstItem="nfv-jM-UUW" firstAttribute="top" secondItem="QiT-dH-qMj" secondAttribute="bottom" constant="26" id="oj8-Sd-zSv"/>
+                                                    <constraint firstItem="Eje-UQ-44r" firstAttribute="top" secondItem="Hk9-j2-2hF" secondAttribute="bottom" constant="100" id="rFc-w7-sJQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="X2T-l4-Bh5" secondAttribute="trailing" constant="416" id="tEd-W5-rj9"/>
-                                                    <constraint firstItem="uTH-Sb-8Yu" firstAttribute="top" secondItem="CQS-lL-j4s" secondAttribute="bottom" constant="39" id="twf-T8-3Hs"/>
-                                                    <constraint firstItem="Eje-UQ-44r" firstAttribute="width" secondItem="CQS-lL-j4s" secondAttribute="width" multiplier="0.535849" id="vWm-yN-uoG"/>
+                                                    <constraint firstItem="c88-bU-6SL" firstAttribute="top" secondItem="Eje-UQ-44r" secondAttribute="bottom" constant="39" id="wkj-U1-ekm"/>
                                                     <constraint firstItem="nfv-jM-UUW" firstAttribute="leading" secondItem="8NP-8N-KqF" secondAttribute="leading" constant="26" id="yqp-ey-lGs"/>
                                                 </constraints>
                                             </view>
@@ -496,9 +483,7 @@
                     <tabBarItem key="tabBarItem" title="Formulario" id="3NK-WL-6HT"/>
                     <size key="freeformSize" width="4098" height="1024"/>
                     <connections>
-                        <outlet property="addressClientTxt" destination="CQS-lL-j4s" id="SYX-C6-9FL"/>
                         <outlet property="addressData" destination="ntf-J3-2uS" id="87d-cX-BRW"/>
-                        <outlet property="birthClientTxt" destination="6AM-Ca-sOW" id="uBF-Ld-aUa"/>
                         <outlet property="cityClientTxt" destination="QiT-dH-qMj" id="iP5-bJ-BvT"/>
                         <outlet property="contactData" destination="SOf-aa-vMB" id="r8f-sq-AcM"/>
                         <outlet property="contentView_width" destination="96Q-7d-3YI" id="Ha0-UW-lZN"/>
@@ -511,6 +496,7 @@
                         <outlet property="mailClientTxt" destination="NcZ-Vz-0Lj" id="nD4-f3-kYF"/>
                         <outlet property="nameClienTxt" destination="ule-XV-zlU" id="qNt-Nb-ZC9"/>
                         <outlet property="personalData" destination="qZy-XR-N7R" id="XCT-dm-udl"/>
+                        <outlet property="rangoEdadClientTxt" destination="6AM-Ca-sOW" id="YBH-ex-Emo"/>
                         <outlet property="scrollView" destination="EnD-m1-5z8" id="k7D-av-RHe"/>
                         <outlet property="suburbClientTxt" destination="Eje-UQ-44r" id="e1L-zP-0V4"/>
                         <outlet property="telClientTxt" destination="H4t-Wb-4lz" id="WWp-6c-jLZ"/>
@@ -659,7 +645,11 @@
                                 <action selector="btnSalir:" destination="lLY-LN-Agn" id="wGW-l1-sAM"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Subir registros" id="LYZ-Rz-lyI"/>
+                        <barButtonItem key="rightBarButtonItem" title="Subir registros" id="LYZ-Rz-lyI">
+                            <connections>
+                                <action selector="mostrarDatos:" destination="lLY-LN-Agn" id="wlx-Gp-Bxd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="KkR-M4-ct5" id="9qi-Cd-14V"/>

@@ -12,10 +12,10 @@ class SubirRegistroVC: UIViewController {
     
     var nombre = ""
     var apellido = ""
-    var cumple = ""
+//  var cumple = ""
     var genero = ""
-    var edad: Int = 0
-    var direccion = ""
+    var edad = ""
+//  var direccion = ""
     var colonia = ""
     var zip = ""
     var municipio = ""
@@ -50,9 +50,9 @@ class SubirRegistroVC: UIViewController {
         print("Correo: \(registrosASubir.mail)\t")
         
         print("----Datos no obligatorios----")
-        print("Cumpleaños: \(registrosASubir.cumple)\t")
+      //print("Cumpleaños: \(registrosASubir.cumple)\t")
         print("Edad: \(registrosASubir.edad)\t")
-        print("Dirección: \(registrosASubir.direccion)\t")
+      //print("Dirección: \(registrosASubir.direccion)\t")
         print("Colonia: \(registrosASubir.colonia)\t")
         print("Municipio: \(registrosASubir.municipio)\t")
         
@@ -74,9 +74,9 @@ class SubirRegistroVC: UIViewController {
     }
     
     func SubeRegistro(){
-        let url = URL(string: "http://localhost:8888/API-movil/clientRegisterCC.php")!
+        let url = URL(string: "https://genoclilab.com/API-movil/clientRegisterCC.php")!
         
-        let body = "name=\(registrosASubir.nombre)&lastname=\(registrosASubir.apellido)&zip=\(registrosASubir.zip)&city=\(registrosASubir.ciudad)&cell=\(registrosASubir.cel)&genre=\(registrosASubir.genero)&mail=\(registrosASubir.mail)&address=\(registrosASubir.direccion)&suburb=\(registrosASubir.colonia)&town=\(registrosASubir.municipio)&birthday=\(registrosASubir.cumple)&age=\(registrosASubir.edad)&ccID=\(iDCC)"
+        let body = "name=\(registrosASubir.nombre)&lastname=\(registrosASubir.apellido)&zip=\(registrosASubir.zip)&city=\(registrosASubir.ciudad)&cell=\(registrosASubir.cel)&genre=\(registrosASubir.genero)&mail=\(registrosASubir.mail)&suburb=\(registrosASubir.colonia)&town=\(registrosASubir.municipio)&age=\(registrosASubir.edad)&ccID=\(iDCC)"
         
         print(body)
         var request = URLRequest(url: url)
@@ -157,17 +157,5 @@ class SubirRegistroVC: UIViewController {
         EliminarRegistro()
         
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

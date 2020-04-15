@@ -20,14 +20,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     super.viewDidLoad()
         
-//        userLoginTXT.delegate = self
-//        userPsswdTXT.delegate = self
-//        NotificationCenter.default.addObserver(self, selector: #selector(teclado(notificacion:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(teclado(notificacion: )), name: UIResponder.keyboardWillHideNotification, object: nil)
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(teclado(notificacion: )), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
         textFiedlsRounded(for: userLoginTXT)
         textFiedlsRounded(for: userPsswdTXT)
         padding(for: userLoginTXT)
@@ -60,33 +52,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.userPsswdTXT.text = ""
     }
     
-//    @objc func teclado(notificacion: Notification){
-//
-//        guard let tecladoSube = (notificacion.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
-//            return
-//        }
-//
-//        if notificacion.name == UIResponder.keyboardWillShowNotification{
-//
-//            self.view.frame.origin.y = -tecladoSube.height
-//
-//        }else{
-//
-//            self.view.frame.origin.y = 0
-//        }
-//    }
-//
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//
-//        self.view.endEditing(true)
-//
-//    func loginGSM(){
-//
-//        let url = URL(string: "http://localhost/API-movil/clientRegisterCC.php")!
-//        let body = "name=\()lastname=\()address=\()suburb=\()zip=\()&town=\()&city=\()&cell=\()&birthday=\()&age=\()&genre=\()&mail=\()"
-//
-//    }
-    
     @IBAction func loginBtn(_ sender: AnyObject) {
         
        loginGSM()
@@ -95,7 +60,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func loginGSM(){
         
-        let url = URL(string: "http://localhost:8888/API-movil/loginCC.php")!
+        let url = URL(string: "https://genoclilab.com/API-movil/loginCC.php")!
         let body = "user=\(userLoginTXT.text!)&password=\(userPsswdTXT.text!)"
         
         var request = URLRequest(url: url)

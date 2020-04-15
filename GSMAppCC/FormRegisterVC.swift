@@ -12,14 +12,16 @@ import UIKit
 
 class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    //var idCCGSM: Int = 0
     var idRecordCC: Int = 0
     let helper = Helper()
-    var clientBirth: String = ""
-    var clientAge: Int = 0
-    let dataSource = ["Hombre", "Mujer", "Prefiero no decirlo"]
+    
+    var currentTextField = UITextField()
+    
+    let dataSource = ["-Genero-", "Hombre", "Mujer", "Prefiero no decirlo"]
+    let dataSourceAge = ["-Rango de edad-","15-25", "26-35", "36-45", "46-55", "56-65", "65 o más"]
     
     var generoPicker = UIPickerView()
+    var rangoEdadPicker = UIPickerView()
     
     //Constraints
     @IBOutlet weak var personalData: NSLayoutConstraint!
@@ -27,8 +29,8 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var contactData: NSLayoutConstraint!
     @IBOutlet weak var footView: UIView!
     
-    var datePicker: UIDatePicker!
-    var genrepicker: UIPickerView!
+//    var edadPicker: UIPickerView!
+//    var genrepicker: UIPickerView!
     
     //Componentes
     @IBOutlet weak var scrollView: UIScrollView!
@@ -39,10 +41,11 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var nameClienTxt: UITextField!
     @IBOutlet weak var lastNameClientTxt: UITextField!
     @IBOutlet weak var genreClientTxt: UITextField!
-    @IBOutlet weak var birthClientTxt: UITextField!
+    //@IBOutlet weak var birthClientTxt: UITextField!
+    @IBOutlet weak var rangoEdadClientTxt: UITextField!
     
     //Direccion
-    @IBOutlet weak var addressClientTxt: UITextField!
+  //@IBOutlet weak var addressClientTxt: UITextField!
     @IBOutlet weak var suburbClientTxt: UITextField!
     @IBOutlet weak var zipCodeClientTxt: UITextField!
     @IBOutlet weak var townClientTxt: UITextField!
@@ -61,20 +64,18 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-//        nameClienTxt.delegate = self
-//        lastNameClientTxt.delegate = self
+        
         genreClientTxt.delegate = self
-        birthClientTxt.delegate = self
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(tecla2(notificacion:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(tecla2(notificacion:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(tecla2(notificacion:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        rangoEdadClientTxt.delegate = self
         
         generoPicker.delegate = self
         generoPicker.dataSource = self
+        
+        rangoEdadPicker.delegate = self
+        rangoEdadPicker.dataSource = self
+        
         genreClientTxt.inputView = generoPicker
+        rangoEdadClientTxt.inputView = rangoEdadPicker
         
         contentView_width.constant = self.view.frame.width * 3
         personalData.constant = self.view.frame.width
@@ -84,9 +85,9 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         textRoundedTextFields(for: nameClienTxt)
         textRoundedTextFields(for: lastNameClientTxt)
         textRoundedTextFields(for: genreClientTxt)
-        textRoundedTextFields(for: birthClientTxt)
+        textRoundedTextFields(for: rangoEdadClientTxt)
         
-        textRoundedTextFields(for: addressClientTxt)
+      //textRoundedTextFields(for: addressClientTxt)
         textRoundedTextFields(for: suburbClientTxt)
         textRoundedTextFields(for: zipCodeClientTxt)
         textRoundedTextFields(for: townClientTxt)
@@ -98,8 +99,8 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         padding(for: nameClienTxt)
         padding(for: lastNameClientTxt)
         padding(for: genreClientTxt)
-        padding(for: birthClientTxt)
-        padding(for: addressClientTxt)
+        padding(for: rangoEdadClientTxt)
+  //    padding(for: addressClientTxt)
         padding(for: suburbClientTxt)
         padding(for: zipCodeClientTxt)
         padding(for: townClientTxt)
@@ -112,13 +113,7 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         botonesRedondos(for: finishContactBtn)
         
         configure_footerView()
-        
-        datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
-        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -5, to: Date())
-        datePicker.addTarget(self, action: #selector(self.datePickerDidChange(_:)), for: .valueChanged)
-        birthClientTxt.inputView = datePicker
-        
+
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.handle(_:)))
         swipe.direction = .right
         self.view.addGestureRecognizer(swipe)
@@ -126,46 +121,12 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
-
-    
-//    @objc func tecla2(notificacion: Notification){
-//
-//        guard let tecladoSube = (notificacion.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else{
-//            return
-//        }
-//
-//        if notificacion.name == UIResponder.keyboardWillShowNotification{
-//
-//            self.view.frame.origin.y = -tecladoSube.height
-//
-//        }else{
-//
-//            self.view.frame.origin.y = 0
-//
-//        }
-//    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         print("Ejecuta acción")
         return true
     }
     
-    @objc func datePickerDidChange(_ datePicker: UIDatePicker){
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = DateFormatter.Style.medium
-        birthClientTxt.text = formatter.string(from: datePicker.date)
-        
-        let compareDateFormatter = DateFormatter()
-        compareDateFormatter.dateFormat = "yyyy/MM/dd"
-        let compareDate = compareDateFormatter.date(from: "2002/01/01")
-        
-        let birthSelect = DateFormatter()
-        birthSelect.dateFormat = "yyyy/MM/dd"
-        clientBirth = birthSelect.string(from: datePicker.date)
-        
-    }
     
     @objc func handle(_ gesture: UISwipeGestureRecognizer){
         
@@ -185,8 +146,8 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         nameClienTxt.text = ""
         lastNameClientTxt.text = ""
         genreClientTxt.text = ""
-        birthClientTxt.text = ""
-        addressClientTxt.text = ""
+        rangoEdadClientTxt.text = ""
+     // addressClientTxt.text = ""
         suburbClientTxt.text = ""
         zipCodeClientTxt.text = ""
         townClientTxt.text = ""
@@ -196,16 +157,6 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let position = CGPoint(x:0, y:0)
         scrollView.setContentOffset(position, animated: true)
-        
-//        let current_x = scrollView.contentOffset.x
-//        let screen_width = self.view.frame.width
-//        let new_x = CGPoint(x: current_x - screen_width, y:0)
-//
-//        if current_x > 0{
-//
-//            scrollView.setContentOffset(new_x, animated: true)
-//
-//        }
         
     }
     
@@ -228,7 +179,7 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func continuaDB_clicked(_ sender: Any){
         
-        if zipCodeClientTxt.text!.isEmpty == false && cityClientTxt.text!.isEmpty == false {
+        if zipCodeClientTxt.text!.isEmpty == false && cityClientTxt.text!.isEmpty == false && suburbClientTxt.text!.isEmpty == false {
             
             zipCodeClientTxt.resignFirstResponder()
             
@@ -237,7 +188,8 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         }else{
             
-            addressClientTxt.becomeFirstResponder()
+           // addressClientTxt.becomeFirstResponder()
+            suburbClientTxt.becomeFirstResponder()
             helper.showAlert(title: "Atención", message: "Todos los campos marcados con un * son obligatorios", in: self)
             
         }
@@ -259,12 +211,10 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         }
         
-       
-        
     }
     
     @IBAction func muestraDatosBtn(_ sender: Any){
-        
+
         muestraDatos()
 
     }
@@ -273,7 +223,7 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
            
         self.view.endEditing(false)
         nameClienTxt.resignFirstResponder()
-        addressClientTxt.resignFirstResponder()
+        //addressClientTxt.resignFirstResponder()
         telClientTxt.resignFirstResponder()
            
        }
@@ -311,7 +261,6 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 
             }
             
-
         }
         
         if textField == mailClientTxt{
@@ -331,37 +280,18 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func guardaLocal(){
         
-        if birthClientTxt.text!.isEmpty == false{
-            
-            let fechaString: String = clientBirth
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy/MM/dd"
-            let fechaDate =  dateFormatter.date(from: fechaString)!
-            
-            let now = Date()
-            let elCumple: Date = fechaDate
-            let calendar = Calendar.current
-            let ageComponents = calendar.dateComponents(([.year]), from: elCumple, to: now)
-            let edad = ageComponents.year!
-            clientAge = edad
-            
-        }
-    
-        
-        TableRecords.shared.insertar(id: idRecordCC, nombre: nameClienTxt.text!, apellido: lastNameClientTxt.text!, cumple: clientBirth, genero: genreClientTxt.text!, edad: clientAge, direccion: addressClientTxt.text!, colonia: suburbClientTxt.text!, zip: zipCodeClientTxt.text!, municipio: townClientTxt.text!, ciudad: cityClientTxt.text!, mail: mailClientTxt.text!, cel: telClientTxt.text!) //, id_cc: idCCGSM
+        TableRecords.shared.insertar(id: idRecordCC, nombre: nameClienTxt.text!, apellido: lastNameClientTxt.text!, genero: genreClientTxt.text!, edad: rangoEdadClientTxt.text!, /*direccion: addressClientTxt.text!,*/ colonia: suburbClientTxt.text!, zip: zipCodeClientTxt.text!, municipio: townClientTxt.text!, ciudad: cityClientTxt.text!, mail: mailClientTxt.text!, cel: telClientTxt.text!) //, id_cc: idCCGSM
         
         let myAlert = UIAlertController(title: "Gracias", message: "Registro Exitoso", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(alertAction) in
             
             let position = CGPoint(x:0, y:0)
             self.scrollView.setContentOffset(position, animated: true)
-            
             self.nameClienTxt.text = ""
             self.lastNameClientTxt.text = ""
             self.genreClientTxt.text = ""
-            self.birthClientTxt.text = ""
-            self.addressClientTxt.text = ""
+            self.rangoEdadClientTxt.text = ""
+            //self.addressClientTxt.text = ""
             self.suburbClientTxt.text = ""
             self.zipCodeClientTxt.text = ""
             self.townClientTxt.text = ""
@@ -369,26 +299,24 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             self.mailClientTxt.text = ""
             self.telClientTxt.text = ""
             
-            
         })
         
         myAlert.addAction(okAction)
         self.present(myAlert, animated:true, completion: nil)
         
-
-       
     }
     
     func muestraDatos(){
-
         TableRecords.shared
         for row in (try! Database.shared.conexion?.prepare("SELECT * FROM recordsClientsCC"))! {
 
-             print("id: \(row[0]!), nombre: \(row[1]!), apellido: \(row[2]!), cumple: \(row[3]!), genero: \(row[4]!), edad: \(row[5]!), dirección: \(row[6]!), colonia: \(row[7]!), zip: \(row[8]!), municipio: \(row[9]!), ciudad: \(row[10]!), mail: \(row[11]!), cel: \(row[12]!)") //, id_cc: \(row[13]!)
+             print("id: \(row[0]!), nombre: \(row[1]!), apellido: \(row[2]!), genero: \(row[3]!), edad: \(row[4]!), colonia: \(row[5]!), zip: \(row[6]!), municipio: \(row[7]!), ciudad: \(row[8]!), mail: \(row[9]!), cel: \(row[10]!)")
 
          }
         
     }
+   
+    
     
     func configure_footerView(){
         
@@ -408,31 +336,84 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         
-        return dataSource.count
+        if currentTextField == genreClientTxt{
+            
+            return dataSource.count
+            
+        }else if currentTextField == rangoEdadClientTxt{
+            
+            return dataSourceAge.count
+            
+        }else{
+            
+            return 0
+            
+        }
         
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         
-        genreClientTxt.text = dataSource[row]
+        if currentTextField == genreClientTxt{
+            
+            if row == 0{
+                
+                generoPicker.selectRow(row+1, inComponent: component, animated: true)
+                  
+              }else{
+                  
+                genreClientTxt.text = dataSource[row]
+                self.view.endEditing(true)
+                  
+              }
+            
+        }else if currentTextField == rangoEdadClientTxt{
+            
+            if row == 0{
+                
+                rangoEdadPicker.selectRow(row+1, inComponent: component, animated: true)
+                
+            }else{
+                
+                rangoEdadClientTxt.text = dataSourceAge[row]
+                self.view.endEditing(true)
+                
+            }
+            
+        }
         
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return dataSource[row]
+        if currentTextField == genreClientTxt{
+            
+            return dataSource[row]
+            
+        }else if currentTextField == rangoEdadClientTxt{
+            
+            return dataSourceAge[row]
+            
+        }
+        
+        return ""
         
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        currentTextField = textField
+        
+        if currentTextField == genreClientTxt{
+            
+            currentTextField.inputView = generoPicker
+            
+        }else if currentTextField == rangoEdadClientTxt{
+            
+            currentTextField.inputView = rangoEdadPicker
+            
+        }
+       
     }
-    */
 
 }
-

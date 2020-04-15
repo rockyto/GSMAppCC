@@ -14,6 +14,7 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBOutlet weak var tableView: UITableView!
     
+    let iDCC: String = UserDefaults.standard.string(forKey: "CCid")!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "subir"{
@@ -21,24 +22,9 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                 let fila = registrosLista[indexPath.row]
                 let destino = segue.destination as! SubirRegistroVC
                 destino.registrosASubir = fila
-                
-//                let nombre = registrosLista[nombre.row]
-//                let apellido = registrosLista[.row]
-//                let cumple = registrosLista[.row]
-//                let genero = registrosLista[.row]
-//                let edad = registrosLista[.row]
-//                let direccion = registrosLista[.row]
-//                let colonia = registrosLista[.row]
-//                let zip = registrosLista[.row]
-//                let municipio = registrosLista[.row]
-//                let ciudad = registrosLista[.row]
-//                let mail = registrosLista[.row]
-//                let cel = registrosLista[.row]
-
             }
         }
     }
- 
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -60,11 +46,6 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
     }
     
-    /*
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "subir", sender: self)
-    }
-    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,15 +53,14 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         if registrosLista.isEmpty == true{
             
-            //tablaHorarios.isHidden = true
             tableView.isHidden = true
             
         }else{
             
             tableView.isHidden = false
+            
         }
         
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,15 +79,104 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     }
     
-    
     override func viewWillAppear(_ animated: Bool){
-        
         
         tableView.reloadData()
 
     }
-
     
+    @IBAction public func mostrarDatos(_ sender: UIButton){
+   
+        subeLote()
+        registrosLista.removeAll()
+        tableView.reloadData()
+        
+    }
+    
+    func subeLote(){
+        
+        TableRecords.shared
+        for row in (try! Database.shared.conexion?.prepare("SELECT * FROM recordsClientsCC"))!{
+            
+            let id = row[0]! as! Int64
+            let nombre = row[1]! as! String
+            let apellido = row[2]! as! String
+            let genero = row[3]! as! String
+            let edad = row[4]! as! String
+            let colonia = row[5]! as! String
+            let zip = row[6]! as! String
+            let municipio = row[7]! as! String
+            let ciudad = row[8]! as! String
+            let mail = row[9]! as! String
+            let cel = row[10]! as! String
+            
+            
+            let url = URL(string: "https://genoclilab.com/API-movil/clientRegisterCC.php")!
+            
+            let body = "name=\(nombre)&lastname=\(apellido)&zip=\(zip)&city=\(ciudad)&cell=\(cel)&genre=\(genero)&mail=\(mail)&suburb=\(colonia)&town=\(municipio)&age=\(edad)&ccID=\(iDCC)"
+            
+            print(body)
+            var request = URLRequest(url: url)
+            request.httpBody = body.data(using: .utf8)
+            request.httpMethod = "POST"
+            
+            URLSession.shared.dataTask(with: request) { (data, response, error) in
+                
+                DispatchQueue.main.async {
+                    
+                    let helper = Helper()
+                    
+                    if error != nil{
+                        
+                        helper.showAlert(title: "Error en el servidor", message: error!.localizedDescription, in: self)
+                        return
+                    }
+                    do {
+                        guard let data = data else{
+                            helper.showAlert(title: "Error de datos", message: error!.localizedDescription, in: self)
+                            return
+                        }
+                        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary
+                        
+                        guard let parsedJSON = json else {
+                            print("PARSING ERROR")
+                            return
+                        }
+                        
+                        if parsedJSON["status"] as! String == "200"{
+                            
+     TableRecords.shared.borrar(ids: id)
+                            
+                        }else{
+                            if parsedJSON["message"] != nil{
+                                let message = parsedJSON["message"] as! String
+                                helper.showAlert(title: "Error", message: message, in: self)
+                            }
+                        }
+                    }catch{
+                        helper.showAlert(title: "JSON Error", message: error.localizedDescription, in: self)
+                    }
+                }
+            }.resume()
+            
+            
+            print("----INICIA REGISTRO----")
+            print("Nombre: \(nombre)\t")
+            print("Apellido: \(apellido)\t")
+            print("Zip: \(zip)\t")
+            print("Ciudad: \(ciudad)\t")
+            print("Teléfono: \(cel)\t")
+            print("Genero: \(genero)\t")
+            print("Correo: \(mail)\t")
+            print("Edad: \(edad)\t")
+            print("Colonia: \(colonia)\t")
+            print("Municipio: \(municipio)\t")
+            print("----FINALIZA REGISTRO----\t")
+             
+        }
+        
+    }
+
     func mostrarRegistros(){
 
         registrosLista.removeAll()
@@ -117,20 +186,16 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                let id = row[0]! as! Int64
                let nombre = row[1]! as! String
                let apellido = row[2]! as! String
-               let cumple = row[3]! as! String
-               let genero = row[4]! as! String
-               let edad = row[5]! as! Int64
-               let direccion = row[6]! as! String
-               let colonia = row[7]! as! String
-               let zip = row[8]! as! String
-               let municipio = row[9]! as! String
-               let ciudad = row[10]! as! String
-               let mail = row[11]! as! String
-               let cel = row[12]! as! String
-             //  let id_cc = row[13]! as! Int64
+               let genero = row[3]! as! String
+               let edad = row[4]! as! String
+               let colonia = row[5]! as! String
+               let zip = row[6]! as! String
+               let municipio = row[7]! as! String
+               let ciudad = row[8]! as! String
+               let mail = row[9]! as! String
+               let cel = row[10]! as! String
             
-            let lista = Registros(id: id, nombre: nombre, apellido: apellido, cumple: cumple, genero: genero, edad: Int(edad), direccion: direccion, colonia: colonia, zip: zip, municipio: municipio, ciudad: ciudad, mail: mail, cel: cel)
-            //, id_cc: id_cc
+            let lista = Registros(id: id, nombre: nombre, apellido: apellido, genero: genero, edad: edad, colonia: colonia, zip: zip, municipio: municipio, ciudad: ciudad, mail: mail, cel: cel)
             
             self.registrosLista.append(lista)
             
@@ -141,19 +206,6 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         self.dismiss(animated: true, completion: nil)
         
-//        let logginView = (self.storyboard?.instantiateViewController(withIdentifier: "tabBarRoot"))
-//        let appDelegado = UIApplication.shared.delegate
-//        appDelegado?.window??.rootViewController = logginView
-        
     }
-    
- 
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-
-    */
 
 }
