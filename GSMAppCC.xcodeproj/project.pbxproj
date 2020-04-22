@@ -29,6 +29,7 @@
 		52D2EB402407370900901E25 /* FormRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D2EB3F2407370900901E25 /* FormRegisterVC.swift */; };
 		52D835662416C891002F4ADD /* SubirRegistroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D835652416C891002F4ADD /* SubirRegistroVC.swift */; };
 		52ED6F6024101F3D00927A14 /* Registros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ED6F5F24101F3D00927A14 /* Registros.swift */; };
+		937C14E12446C1A700F4015F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 937C14E02446C1A700F4015F /* MBProgressHUD.m */; };
 		969F8CC5FDFFB0D0D572A305 /* Pods_GSMAppCCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 445ACC37448D2E56ADA23AB1 /* Pods_GSMAppCCTests.framework */; };
 		A9283131BCFC32D8AB8B449A /* Pods_GSMAppCC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5BDDDED0F1B037599AA55C /* Pods_GSMAppCC.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,9 @@
 		52ED6F6124102A5600927A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52ED6F6224102A5600927A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BC1F7239EB5450247036F4F /* Pods-GSMAppCC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSMAppCC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GSMAppCC/Pods-GSMAppCC.debug.xcconfig"; sourceTree = "<group>"; };
+		937C14DE2446C1A500F4015F /* GSMAppCC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GSMAppCC-Bridging-Header.h"; sourceTree = "<group>"; };
+		937C14DF2446C1A600F4015F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		937C14E02446C1A700F4015F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 				52ED6F5F24101F3D00927A14 /* Registros.swift */,
 				524B052A2410340A000ED7F7 /* ListaRegistrosVC.swift */,
 				5264CB5F2406F48100922BF7 /* SceneDelegate.swift */,
+				937C14E32446C1B900F4015F /* MBProgress */,
 				52688162240EF70700E72A62 /* Helper.swift */,
 				5264CB612406F48100922BF7 /* ViewController.swift */,
 				5264CB632406F48100922BF7 /* Main.storyboard */,
@@ -146,6 +151,7 @@
 				5264CB682406F49500922BF7 /* LaunchScreen.storyboard */,
 				5264CB6B2406F49500922BF7 /* Info.plist */,
 				5266C6B0240EBFDB00908167 /* Database.swift */,
+				937C14DE2446C1A500F4015F /* GSMAppCC-Bridging-Header.h */,
 			);
 			path = GSMAppCC;
 			sourceTree = "<group>";
@@ -182,6 +188,15 @@
 				392311C893C3F8C7E2061C79 /* Pods-GSMAppCCTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		937C14E32446C1B900F4015F /* MBProgress */ = {
+			isa = PBXGroup;
+			children = (
+				937C14DF2446C1A600F4015F /* MBProgressHUD.h */,
+				937C14E02446C1A700F4015F /* MBProgressHUD.m */,
+			);
+			path = MBProgress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +252,7 @@
 				TargetAttributes = {
 					5264CB592406F48000922BF7 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					5264CB6F2406F49600922BF7 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -360,6 +376,7 @@
 				5264CB5E2406F48100922BF7 /* AppDelegate.swift in Sources */,
 				52ED6F6024101F3D00927A14 /* Registros.swift in Sources */,
 				52AE9252240EEC9700232747 /* TableRecords.swift in Sources */,
+				937C14E12446C1A700F4015F /* MBProgressHUD.m in Sources */,
 				52D835662416C891002F4ADD /* SubirRegistroVC.swift in Sources */,
 				529D1AEF2412C56900FEEF2A /* AcuerdoPrivVC.swift in Sources */,
 				5266C6B1240EBFDB00908167 /* Database.swift in Sources */,
@@ -526,6 +543,7 @@
 			baseConfigurationReference = 6BC1F7239EB5450247036F4F /* Pods-GSMAppCC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = GSMAppCC/Assets.xcassets;
 				DEVELOPMENT_TEAM = JU25EWQPKG;
@@ -536,6 +554,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sma.GSMAppCC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GSMAppCC/GSMAppCC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -546,6 +566,7 @@
 			baseConfigurationReference = 1B4CF5FC7E9BFF0EEA298BA9 /* Pods-GSMAppCC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = GSMAppCC/Assets.xcassets;
 				DEVELOPMENT_TEAM = JU25EWQPKG;
@@ -556,6 +577,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sma.GSMAppCC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GSMAppCC/GSMAppCC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

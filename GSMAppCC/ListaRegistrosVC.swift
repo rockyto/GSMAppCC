@@ -10,6 +10,9 @@ import UIKit
 
 class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+   
+    
+    
     var registrosLista = [Registros]()
     
     @IBOutlet weak var tableView: UITableView!
@@ -94,6 +97,10 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func subeLote(){
+         
+        let spinningActivity = MBProgressHUD.showAdded(to: self.view, animated: true)
+        spinningActivity?.labelText = "Subiendo registros"
+        spinningActivity?.detailsLabelText = "un momento por favor"
         
         TableRecords.shared
         for row in (try! Database.shared.conexion?.prepare("SELECT * FROM recordsClientsCC"))!{
@@ -146,7 +153,7 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                         if parsedJSON["status"] as! String == "200"{
                             
      TableRecords.shared.borrar(ids: id)
-                            
+     
                         }else{
                             if parsedJSON["message"] != nil{
                                 let message = parsedJSON["message"] as! String
@@ -174,6 +181,7 @@ class ListaRegistrosVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             print("----FINALIZA REGISTRO----\t")
              
         }
+        spinningActivity?.hide(true)
         
     }
 

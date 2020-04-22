@@ -14,7 +14,7 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var idRecordCC: Int = 0
     let helper = Helper()
-    
+
     var currentTextField = UITextField()
     
     let dataSource = ["-Genero-", "Hombre", "Mujer", "Prefiero no decirlo"]
@@ -279,9 +279,12 @@ class FormRegisterVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func guardaLocal(){
-        
+        let spinningActivity = MBProgressHUD.showAdded(to: self.view, animated: true)
+        spinningActivity?.labelText = "Registrando"
+        spinningActivity?.detailsLabelText = "un momento por favor"
         TableRecords.shared.insertar(id: idRecordCC, nombre: nameClienTxt.text!, apellido: lastNameClientTxt.text!, genero: genreClientTxt.text!, edad: rangoEdadClientTxt.text!, /*direccion: addressClientTxt.text!,*/ colonia: suburbClientTxt.text!, zip: zipCodeClientTxt.text!, municipio: townClientTxt.text!, ciudad: cityClientTxt.text!, mail: mailClientTxt.text!, cel: telClientTxt.text!) //, id_cc: idCCGSM
-        
+         
+        spinningActivity?.hide(true)
         let myAlert = UIAlertController(title: "Gracias", message: "Registro Exitoso", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(alertAction) in
             

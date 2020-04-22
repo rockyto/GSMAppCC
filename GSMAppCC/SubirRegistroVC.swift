@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class SubirRegistroVC: UIViewController {
     
     var nombre = ""
@@ -34,6 +36,7 @@ class SubirRegistroVC: UIViewController {
     let iDCC: String = UserDefaults.standard.string(forKey: "CCid")!
     
     override func viewDidLoad() {
+        
         
         botonesRedondos(for: btnSi)
         botonesRedondos(for: btnNo)
@@ -74,6 +77,11 @@ class SubirRegistroVC: UIViewController {
     }
     
     func SubeRegistro(){
+       
+        let spinningActivity = MBProgressHUD.showAdded(to: self.view, animated: true)
+        spinningActivity?.labelText = "Subiendo registro"
+        spinningActivity?.detailsLabelText = "un momento por favor"
+        
         let url = URL(string: "https://genoclilab.com/API-movil/clientRegisterCC.php")!
         
         let body = "name=\(registrosASubir.nombre)&lastname=\(registrosASubir.apellido)&zip=\(registrosASubir.zip)&city=\(registrosASubir.ciudad)&cell=\(registrosASubir.cel)&genre=\(registrosASubir.genero)&mail=\(registrosASubir.mail)&suburb=\(registrosASubir.colonia)&town=\(registrosASubir.municipio)&age=\(registrosASubir.edad)&ccID=\(iDCC)"
@@ -113,8 +121,8 @@ class SubirRegistroVC: UIViewController {
                             
                             self.EliminarRegistro()
                         
-                              self.navigationController?.popViewController(animated: true)
-
+                            self.navigationController?.popViewController(animated: true)
+                            spinningActivity?.hide(true)
                         })
                         
                         myAlert.addAction(okAction)
